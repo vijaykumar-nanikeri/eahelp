@@ -1,0 +1,82 @@
+<h3 class="mb-4">What platform are you playing on?</h3>
+<ng-container *ngIf="(!formData['notify'] && (restData['platforms'].length > 0))">
+    <div class="container-fluid px-0" *ngIf="!formData['platformSelected']['id']">
+        <div class="row">
+            <div
+              class="col-lg-3 col-sm-6"
+              *ngFor="let platform of restData['platforms']; trackBy: trackByService.trackById;">
+                <a
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-center
+                        justify-content-center
+                        p-3
+                        flex-container
+                        bg-gradient-secondary
+                    "
+                    href="javascript:void(0);"
+                    (click)="getTopics(platform)">
+                    <div class="flex-container-title">{{ platform.name }}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid px-0" *ngIf="formData['platformSelected']['id']">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-center
+                        justify-content-center
+                        p-3
+                        flex-container
+                        bg-gradient-secondary
+                    ">
+                    <div class="flex-container-title">
+                        {{ formData['platformSelected']['name'] }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 d-none d-sm-block">
+                <div
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-start
+                        justify-content-center
+                        p-3
+                        flex-container
+                        border-0
+                        bg-none
+                    ">
+                    <button
+                        class="btn btn-primary btn-block"
+                        type="button"
+                        (click)="changePlatform()">
+                        Change
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-12 d-block d-sm-none">
+                <button
+                    class="btn btn-primary btn-block"
+                    type="button"
+                    (click)="changePlatform()">
+                    Change
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+</ng-container>
+
+<ng-container *ngIf="(formData['notify'] && !restData['platforms'].length)">
+  <h1 class="notify" [innerHtml]="formData['notify']"></h1>
+</ng-container>
+
+<ng-template eaTopics></ng-template>

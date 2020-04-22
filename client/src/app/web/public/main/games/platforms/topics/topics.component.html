@@ -1,0 +1,41 @@
+<h3 class="mb-4">Select topic</h3>
+<ng-container *ngIf="(!formData['notify'] && (restData['topics'].length > 0))">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div
+              class="col-lg-4 col-sm-12"
+              *ngFor="let topic of restData['topics']; trackBy: trackByService.trackById;">
+                <a
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-center
+                        justify-content-center
+                        p-3
+                        flex-container
+                        flex-container-topics
+                        bg-gradient-secondary
+                    "
+                    [ngClass]="{
+                        'bg-gradient-dark text-secondary':
+                            (
+                                formData['topicSelected']['id']
+                                && (formData['topicSelected']['id'] === topic.id)
+                            )
+                    }"
+                    href="javascript:void(0);"
+                    (click)="email(topic)">
+                    <div class="flex-container-title">{{ topic.name }}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+</ng-container>
+
+<ng-container *ngIf="(formData['notify'] && !restData['topics'].length)">
+  <h1 class="notify" [innerHtml]="formData['notify']"></h1>
+</ng-container>
+
+<ng-template eaEmail></ng-template>

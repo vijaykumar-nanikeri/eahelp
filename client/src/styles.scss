@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Overriding bootstrap [START] >>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+// << [END]
+
+// Appending bootstrap [START] >>
+.bg-none {
+    background: none !important;
+}
+
+.spinner-grow.spinner-grow-loading {
+    width: 5px;
+    height: 5px;
+    vertical-align: inherit;
+}
+
+h1.notify {
+    opacity: 0.5;
+}
+// << [END]
+
+// Flex container [START] >>
+a.flex-container,
+a.flex-container:hover {
+    color: #212529;
+}
+
+a.flex-container:hover {
+    text-decoration: none;
+}
+
+.flex-container {
+    height: 20rem;
+    margin-bottom: 30px;
+    border: 5px solid lightslategray;
+    background: #ddd;
+}
+
+.flex-container .flex-container-title {
+    font-size: 1.625rem;
+    font-weight: 300;
+}
+
+.flex-container-topics {
+    height: 5rem !important;
+    border-width: 2.5px;
+}
+
+.flex-container-topics .flex-container-title {
+    font-size: 1.015625rem;
+    font-weight: 300;
+}
+// << [END]
+
+// Framework level [START] >>
+.email-container input,
+.email-container textarea {
+    font-weight: bold;
+}
+
+.email-container input::placeholder,
+.email-container textarea::placeholder {
+    font-weight: initial;
+    opacity: 0.5;
+}
+
+.email-container label,
+.email-container input[name="subject"]::placeholder,
+.email-container textarea[name="message"]::placeholder {
+    font-size: 0.8125rem;
+    font-weight: bold;
+}
+// << [END]

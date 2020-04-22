@@ -1,0 +1,4 @@
+SERVER COMMANDS
+===============
+
+npm install --save nodemon cors express dotenv jsonwebtoken mysql bcrypt body-parser

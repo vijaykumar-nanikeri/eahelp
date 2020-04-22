@@ -1,0 +1,46 @@
+DESIGN FOLDER
+=============
+
+app
+|
+|---web
+|	|
+|	|---public
+|		|
+|		|---header
+|		|
+|		|---main
+|			|
+|			|---games
+|				|
+|				|---directives
+|				|	|
+|				|	|---platforms
+|				|
+|				|---platforms
+|					|
+|					|---directives
+|					|	|
+|					|	|---topics
+|					|
+|					|---topics
+|						|
+|						|---directives
+|						|	|
+|						|	|---email
+|						|
+|						|---email
+|
+|---shared
+	|
+	|---core
+	|	|
+	|	|---auth
+	|
+	|---enums
+	|	|
+	|	|---urls, shared-enum
+	|
+	|---services
+		|
+		|---rest-api, is-array-data, track-by, flat-check-object

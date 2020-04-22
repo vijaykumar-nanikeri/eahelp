@@ -1,0 +1,62 @@
+ANGULAR CLI COMMANDS
+====================
+
+git clone https://github.com/vijaykumar-nanikeri/eahelp.git
+
+ng new eahelp --directory eahelp/client --prefix ea
+
+// Install & setup bootstrap >>
+// Ref: https://stackoverflow.com/a/48381145
+npm install jquery@3.4.1 --save
+npm install popper.js --save
+npm install bootstrap --save
+
+// Update angular.json
+"styles": [
+	"node_modules/bootstrap/dist/css/bootstrap.min.css",
+	"styles.css"
+],
+"scripts": [
+	"node_modules/jquery/dist/jquery.min.js",
+	"node_modules/popper.js/dist/umd/popper.min.js",
+	"node_modules/bootstrap/dist/js/bootstrap.min.js"
+],
+// <<
+
+// Install & setup bootswatch >>
+// Ref: https://bootswatch.com/help/
+// Add .../src/themes.scss file and add below line.
+// @import 'bootswatch/dist/materia/bootstrap.min.css';
+npm install bootswatch --save
+// <<
+
+ng g m web/public
+ng g c web/public/public --flat
+ng g m web/public/public-routing --flat
+
+ng g c web/public/header
+
+ng g m web/public/main
+ng g c web/public/main/main --flat
+ng g m web/public/main/main-routing --flat
+
+ng g c web/public/main/games
+ng g d web/public/main/games/directives/platforms
+
+ng g c web/public/main/games/platforms
+ng g d web/public/main/games/platforms/directives/topics
+
+ng g c web/public/main/games/platforms/topics
+ng g d web/public/main/games/platforms/topics/directives/email
+
+ng g c web/public/main/games/platforms/topics/email
+
+ng g m shared/core
+
+ng g e shared/enums/shared-enum
+ng g e shared/enums/urls/urls
+
+ng g s shared/services/rest-api/rest-api
+ng g s shared/services/is-array-data/is-array-data
+ng g s shared/services/track-by/track-by
+ng g s shared/services/flat-check-object/flat-check-object

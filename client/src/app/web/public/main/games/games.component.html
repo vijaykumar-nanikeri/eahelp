@@ -1,0 +1,99 @@
+<h2>What can we help you with?</h2>
+<h3>Select the game or service.</h3>
+<ng-container *ngIf="!formData['gameSelected']['id']">
+<form class="mb-2">
+    <div class="form-group row">
+        <label for="search" class="col-sm-2 col-form-label">Search</label>
+        <div class="col-sm-4">
+            <input
+                type="text"
+                id="search"
+                name="search"
+                class="form-control"
+                [ngModel]="submitData['game']"
+                (ngModelChange)="onSearchingGame.next($event)"
+                placeholder="Search any EA product" />
+        </div>
+    </div>
+</form>
+</ng-container>
+
+<ng-container *ngIf="(!formData['notify'] && (restData['games'].length > 0))">
+    <div class="container-fluid px-0" *ngIf="!formData['gameSelected']['id']">
+        <div class="row">
+            <div
+              class="col-lg-3 col-sm-6"
+              *ngFor="let game of restData['games']; trackBy: trackByService.trackById;">
+                <a
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-center
+                        justify-content-center
+                        p-3
+                        flex-container
+                    "
+                    href="javascript:void(0);"
+                    (click)="getPlatforms(game)">
+                    <div class="flex-container-title">{{ game.name }}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid px-0" *ngIf="formData['gameSelected']['id']">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-center
+                        justify-content-center
+                        p-3
+                        flex-container
+                    ">
+                    <div class="flex-container-title">
+                        {{ formData['gameSelected']['name'] }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 d-none d-sm-block">
+                <div
+                    class="
+                        d-flex
+                        flex-column
+                        align-items-start
+                        justify-content-center
+                        p-3
+                        flex-container
+                        border-0
+                        bg-none
+                    ">
+                    <button
+                        class="btn btn-primary btn-block"
+                        type="button"
+                        (click)="changeGame()">
+                        Change
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-12 d-block d-sm-none">
+                <button
+                    class="btn btn-primary btn-block"
+                    type="button"
+                    (click)="changeGame()">
+                    Change
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+</ng-container>
+
+<ng-container *ngIf="(formData['notify'] && !restData['games'].length)">
+  <h1 class="notify" [innerHtml]="formData['notify']"></h1>
+</ng-container>
+
+<ng-template eaPlatforms></ng-template>

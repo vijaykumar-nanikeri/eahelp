@@ -1,0 +1,131 @@
+<h1 class="mb-4">Email</h1>
+
+<form class="container-fluid px-0 email-container" [formGroup]="emailForm">
+    <div class="form-row mb-2">
+        <div
+            class="form-group col-lg-6 col-xl-3"
+            [ngClass]="{ 'has-danger': isInvalid('mobileNo') }">
+            <label for="mobileno">{{ getField('mobileNo').name }}</label>
+            <input
+                type="text"
+                class="form-control form-control-sm"
+                id="mobileno"
+                name="mobileno"
+                [placeholder]="getField('mobileNo').name"
+                formControlName="mobileNo" />
+            <div
+                class="text-danger"
+                *ngIf="isInvalid('mobileNo')">
+                <em>
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('mobileNo').errors['required']">
+                        {{ getField('mobileNo').name }} is required.
+                    </small>
+                    <!-- Mobile No validation. -->
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('mobileNo').errors['pattern']">
+                        Invalid {{ getField('mobileNo').name }}.
+                    </small>
+                </em>
+            </div>
+        </div>
+        <div
+            class="form-group col-lg-6 col-xl-3"
+            [ngClass]="{ 'has-danger': isInvalid('emailId') }">
+            <label for="emailid">{{ getField('emailId').name }}</label>
+            <input
+                type="text"
+                class="form-control form-control-sm"
+                id="emailid"
+                name="emailid"
+                [placeholder]="getField('emailId').name"
+                formControlName="emailId" />
+            <div
+                class="text-danger"
+                *ngIf="isInvalid('emailId')">
+                <em>
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('emailId').errors['required']">
+                        {{ getField('emailId').name }} is required.
+                    </small>
+                    <!-- Email ID validation. -->
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('emailId').errors['email']">
+                        Invalid {{ getField('emailId').name }}.
+                    </small>
+                </em>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        <div
+            class="form-group col-lg-12 col-xl-6"
+            [ngClass]="{ 'has-danger': isInvalid('subject') }">
+            <input
+                type="text"
+                class="form-control form-control-sm"
+                id="subject"
+                name="subject"
+                [placeholder]="getField('subject').name"
+                formControlName="subject" />
+            <div
+                class="text-danger"
+                *ngIf="isInvalid('subject')">
+                <em>
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('subject').errors['required']">
+                        {{ getField('subject').name }} is required.
+                    </small>
+                </em>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        <div
+            class="form-group col-lg-12 col-xl-6"
+            [ngClass]="{ 'has-danger': isInvalid('message') }">
+            <textarea
+                type="text"
+                class="form-control form-control-sm"
+                id="message"
+                name="message"
+                rows="2"
+                [placeholder]="getField('message').name"
+                formControlName="message">
+            </textarea>
+            <div
+                class="text-danger"
+                *ngIf="isInvalid('message')">
+                <em>
+                    <small
+                        class="font-weight-lighter"
+                        *ngIf="emailForm.get('message').errors['required']">
+                        {{ getField('message').name }} is required.
+                    </small>
+                </em>
+            </div>
+        </div>
+    </div>
+    <div class="form-row mb-2" *ngIf="formData['emailSent']">
+        <div class="form-group col-lg-6 col-xl-3">
+            <p class="text-success font-italic">
+                <strong>Success:</strong> Email has been sent.
+            </p>
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        <div class="form-group col-lg-6 col-xl-3">
+            <button
+                type="button"
+                class="btn btn-success"
+                (click)="send()">
+                Send
+            </button>
+        </div>
+    </div>
+</form>

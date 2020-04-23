@@ -1,6 +1,8 @@
 # eahelp
 Assignment Repository | 156110 - Applications Engineer II | Electronic Arts
 
+------------
+
 ### Project Design
 
     app (app.module, app.component, app-routing.module)
@@ -47,3 +49,12 @@ Assignment Repository | 156110 - Applications Engineer II | Electronic Arts
             |
             |---rest-api.service, is-array-data.service, track-by.service, flat-check-object.service
 
+------------
+
+### Database Design
+[![Database Design](https://github.com/vijaykumar-nanikeri/eahelp/blob/master/assets/docs/database-design.png "Database Design")](https://github.com/vijaykumar-nanikeri/eahelp/blob/master/assets/docs/database-design.png "Database Design")
+
+------------
+
+### Unit Testing Report
+[![Unit Testing Report](https://github.com/vijaykumar-nanikeri/eahelp/blob/master/assets/docs/unit-testing-report.png "Unit Testing Report")](https://github.com/vijaykumar-nanikeri/eahelp/blob/master/assets/docs/unit-testing-report.png "Unit Testing Report")

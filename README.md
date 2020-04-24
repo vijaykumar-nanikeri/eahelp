@@ -3,6 +3,12 @@ Assignment Repository | 156110 - Applications Engineer II | Electronic Arts
 
 ------------
 
+### Demo
+
+Please download the demo [here](https://github.com/vijaykumar-nanikeri/eahelp/blob/master/assets/demo/eahelp-demo-2x-speed.mov?raw=true "demo").
+
+------------
+
 ### Setup
 
 ##### Database Configuration
